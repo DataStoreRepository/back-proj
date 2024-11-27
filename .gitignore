@@ -1,0 +1,49 @@
+# Maven and Gradle directories
+/target/
+/build/
+
+# security
+*.pub
+*.bin
+*.lock
+*.key
+
+# Maven specific files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Spring Boot specific files
+/spring.log
+
+# Environment specific properties
+*.env
+*.properties
+
+# Database files
+*.h2.db
+*.mv.db
+
+# Temp files
+*.swp
+*.swo
+*.bak
+
+# Application generated files
+/tmp/
+!/src/main/resources/**/templates/
+!/src/main/resources/**/static/
