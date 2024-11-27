@@ -32,7 +32,7 @@ logs/
 
 # Environment specific properties
 *.env
-*.properties
+# *.properties
 
 # Database files
 *.h2.db
