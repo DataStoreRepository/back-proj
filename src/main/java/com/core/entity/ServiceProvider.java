@@ -31,7 +31,7 @@ public class ServiceProvider {
     private String experience;
 
     @Lob
-    @Column(columnDefinition = "LONGBLOB")
+    @Column(columnDefinition = "BYTEA")
     private byte[] image;
 
     @OneToOne

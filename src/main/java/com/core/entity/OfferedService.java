@@ -29,7 +29,7 @@ public class OfferedService {
     private Double price;
 
     @Lob
-    @Column(columnDefinition = "LONGBLOB")
+    @Column(columnDefinition = "BYTEA")
     private byte[] image;
 
     @JsonAlias
