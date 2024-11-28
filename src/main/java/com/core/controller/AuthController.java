@@ -19,10 +19,9 @@ import com.core.entity.UserMarket;
 import com.core.repository.UserRepository;
 import com.core.service.TokenService;
 
-
 @RestController
 @RequestMapping("auth")
-@CrossOrigin(origins = "https://back-proj-j660.onrender.com")
+@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com/")
 public class AuthController {
 
     @Autowired
@@ -42,7 +41,7 @@ public class AuthController {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-       var token = tokenService.generateToken((UserMarket) auth.getPrincipal());
+        var token = tokenService.generateToken((UserMarket) auth.getPrincipal());
 
         return ResponseEntity.ok(token);
     }
@@ -54,7 +53,8 @@ public class AuthController {
         }
 
         String encryptedPassword = passwordEncoder.encode(registerDTO.password());
-        UserMarket newUser = new UserMarket(registerDTO.email(), encryptedPassword, registerDTO.name(), registerDTO.address());
+        UserMarket newUser = new UserMarket(registerDTO.email(), encryptedPassword, registerDTO.name(),
+                registerDTO.address());
 
         repository.save(newUser);
 

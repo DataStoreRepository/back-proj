@@ -23,8 +23,7 @@ import com.core.dto.UserDTO;
 import com.core.entity.UserMarket;
 import com.core.service.UserService;
 
-
-@CrossOrigin(origins = "https://back-proj-j660.onrender.com", allowedHeaders = "*")
+@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com/", allowedHeaders = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -48,7 +47,7 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<UserDTO>> findAll() {
         List<UserDTO> usersDTO = UserService.findAll();
-        
+
         return ResponseEntity.ok(usersDTO);
     }
 
@@ -69,5 +68,5 @@ public class UserController {
         UserService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-    
+
 }
