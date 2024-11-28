@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.core.dto.ServiceProviderDTO;
 import com.core.entity.ServiceProvider;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 import com.core.repository.ServiceProviderRepository;
 import com.core.repository.UserRepository;
 import com.core.util.ServiceProviderMapper;
@@ -36,7 +36,7 @@ public class ServiceProviderService {
     public ServiceProviderDTO saveServiceProvider(ServiceProviderDTO serviceProviderDTO, MultipartFile imageFile)
             throws IOException {
         // Buscar o User já existente pelo ID fornecido no DTO
-        User existingUser = userRepository.findById(serviceProviderDTO.getUserId())
+        UserMarket existingUser = userRepository.findById(serviceProviderDTO.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
 
         // Converter a imagem para um array de bytes

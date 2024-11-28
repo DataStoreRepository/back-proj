@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.core.dto.AuthDTO;
 import com.core.dto.RegisterDTO;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 import com.core.repository.UserRepository;
 import com.core.service.TokenService;
 
@@ -42,7 +42,7 @@ public class AuthController {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-       var token = tokenService.generateToken((User) auth.getPrincipal());
+       var token = tokenService.generateToken((UserMarket) auth.getPrincipal());
 
         return ResponseEntity.ok(token);
     }
@@ -54,7 +54,7 @@ public class AuthController {
         }
 
         String encryptedPassword = passwordEncoder.encode(registerDTO.password());
-        User newUser = new User(registerDTO.email(), encryptedPassword, registerDTO.name(), registerDTO.address());
+        UserMarket newUser = new UserMarket(registerDTO.email(), encryptedPassword, registerDTO.name(), registerDTO.address());
 
         repository.save(newUser);
 

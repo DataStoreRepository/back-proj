@@ -2,11 +2,11 @@ package com.core.util;
 
 import com.core.dto.AddressDTO;
 import com.core.dto.UserDTO;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 
 public abstract class UserMapper {
     
-    public static UserDTO toUserDTO(User user) {
+    public static UserDTO toUserDTO(UserMarket user) {
 
         AddressDTO addressDTO = null;
 
@@ -22,12 +22,12 @@ public abstract class UserMapper {
         );
     }
 
-    public static User toUser(UserDTO userDTO) {
+    public static UserMarket toUser(UserDTO userDTO) {
         if (userDTO == null) {
             throw new IllegalArgumentException("Usuário não pode ser nulo!");
         }
 
-        return new User(
+        return new UserMarket(
             userDTO.getId(),
             userDTO.getName(),
             userDTO.getEmail(),

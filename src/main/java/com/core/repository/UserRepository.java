@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserMarket, Long> {
     boolean existsByEmail(String email);
     UserDetails findByEmail(String email);
 
     @Query("SELECT u FROM User u WHERE u.email = :email")
-    Optional<User> findUserByEmail(String email);
+    Optional<UserMarket> findUserByEmail(String email);
 }

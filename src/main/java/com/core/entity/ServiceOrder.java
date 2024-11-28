@@ -17,7 +17,7 @@ public class ServiceOrder {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserMarket user;
 
     @ManyToOne
     @JoinColumn(name = "service_provider_id")

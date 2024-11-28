@@ -36,7 +36,7 @@ public class ServiceProvider {
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    private UserMarket user;
 
     @JsonIgnore
     @OneToMany(mappedBy = "serviceProvider")

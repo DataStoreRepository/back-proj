@@ -3,7 +3,7 @@ package com.core.util;
 import com.core.entity.OfferedService;
 import com.core.entity.ServiceOrder;
 import com.core.entity.ServiceProvider;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 import com.core.dto.ServiceOrderDTO;
 import com.core.repository.OfferedServiceRepository;
 import com.core.repository.ServiceProviderRepository;
@@ -36,7 +36,7 @@ public class ServiceOrderMapper {
         }
 
         public ServiceOrder toServiceOrder(ServiceOrderDTO serviceOrderDTO) {
-                User user = userRepository.findById(serviceOrderDTO.getUserId())
+                UserMarket user = userRepository.findById(serviceOrderDTO.getUserId())
                                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
                 ServiceProvider serviceProvider = serviceProviderRepository
                                 .findById(serviceOrderDTO.getServiceProviderId())

@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 //@Inheritance(strategy = InheritanceType.JOINED)
-public class User implements UserDetails{
+public class UserMarket implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,7 +33,7 @@ public class User implements UserDetails{
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    public User(String email, String password, String name, Address address) {
+    public UserMarket(String email, String password, String name, Address address) {
         this.email = email;
         this.password = password;
         this.name = name;

@@ -9,7 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.core.dto.UserDTO;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 import com.core.repository.UserRepository;
 import com.core.util.InputValidation;
 import com.core.util.UserMapper;
@@ -40,9 +40,9 @@ public class UserService {
             throw new IllegalArgumentException("Este e-mail já está cadastrado");
         }
 
-        User user = UserMapper.toUser(userDTO);
+        UserMarket user = UserMapper.toUser(userDTO);
 
-        User userSalvo = repository.save(user);
+        UserMarket userSalvo = repository.save(user);
 
         UserDTO userDTOSalvo = UserMapper.toUserDTO(userSalvo);
 
@@ -50,7 +50,7 @@ public class UserService {
     }
 
     public List<UserDTO> findAll() {
-        List<User> users = repository.findAll();
+        List<UserMarket> users = repository.findAll();
 
         List<UserDTO> usersDTO = users.stream()
         .map(UserMapper::toUserDTO)
@@ -64,10 +64,10 @@ public class UserService {
     }
 
     public UserDTO findById(Long id) {
-        Optional<User> userOptional = repository.findById(id);
+        Optional<UserMarket> userOptional = repository.findById(id);
 
         if (userOptional.isPresent()) {
-            User user = userOptional.get();
+            UserMarket user = userOptional.get();
             return UserMapper.toUserDTO(user);
         } else {
             throw new EntityNotFoundException("Usuário com ID " + id + " não encontrado!");
@@ -76,7 +76,7 @@ public class UserService {
 
     // quebrado pq da erro de constraint
     public void deleteById(Long id) {
-        Optional<User> userOptional = repository.findById(id);
+        Optional<UserMarket> userOptional = repository.findById(id);
 
         if (userOptional.isPresent()) {
             repository.deleteById(id);
@@ -86,16 +86,16 @@ public class UserService {
     }
 
     public UserDTO update(UserDTO userDTO) {
-        Optional<User> userOptional = repository.findById(userDTO.getId());
+        Optional<UserMarket> userOptional = repository.findById(userDTO.getId());
 
         if (!userOptional.isPresent()) {
             throw new EntityNotFoundException("Usuário com ID " + userDTO.getId() + " não encontrado");
         }
 
-        User userSalvo = userOptional.get();
+        UserMarket userSalvo = userOptional.get();
 
         // Mapeando o DTO para a entidade User
-        User user = UserMapper.toUser(userDTO);
+        UserMarket user = UserMapper.toUser(userDTO);
 
         // Copiando as propriedades do objeto User atualizado, exceto o "id"
         BeanUtils.copyProperties(user, userSalvo, "id");
@@ -108,7 +108,7 @@ public class UserService {
     }
 
     public UserDTO getByEmail(String email) {
-        Optional<User> userOptional = repository.findUserByEmail(email);
+        Optional<UserMarket> userOptional = repository.findUserByEmail(email);
     
         if (userOptional.isPresent()) {
             return UserMapper.toUserDTO(userOptional.get());

@@ -14,7 +14,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.core.dto.AddressDTO;
 import com.core.dto.UserDTO;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 import com.core.repository.UserRepository;
 import com.core.service.UserService;
 import com.core.util.UserMapper;
@@ -46,7 +46,7 @@ public class UserTest {
 
         // Mockando o repositório
         when(repository.existsByEmail(validUser.getEmail())).thenReturn(false);
-        when(repository.save(org.mockito.ArgumentMatchers.any(User.class))).thenReturn(UserMapper.toUser(validUser));
+        when(repository.save(org.mockito.ArgumentMatchers.any(UserMarket.class))).thenReturn(UserMapper.toUser(validUser));
 
         // Executando o serviço
         UserDTO savedUser = userService.save(validUser);
@@ -61,14 +61,14 @@ public class UserTest {
     public void testUpdateUser() {
         // Criando usuário existente
         AddressDTO addressDTO = new AddressDTO("São Paulo", "SP", "Rua Velha", "123", "Centro");
-        User existingUser = new User(1L, "Marcus", "marcus@email.com", "password123", null);
+        UserMarket existingUser = new UserMarket(1L, "Marcus", "marcus@email.com", "password123", null);
 
         // Criando UserDTO com atualização
         UserDTO updateUser = new UserDTO(1L, "Marcus Atualizado", "marcus@email.com", "newpassword123", addressDTO);
 
         // Mockando o repositório
         when(repository.findById(updateUser.getId())).thenReturn(Optional.of(existingUser));
-        when(repository.save(org.mockito.ArgumentMatchers.any(User.class))).thenReturn(UserMapper.toUser(updateUser));
+        when(repository.save(org.mockito.ArgumentMatchers.any(UserMarket.class))).thenReturn(UserMapper.toUser(updateUser));
 
         // Executando o serviço
         UserDTO updatedUser = userService.update(updateUser);

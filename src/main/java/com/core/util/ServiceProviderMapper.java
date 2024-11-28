@@ -2,7 +2,7 @@ package com.core.util;
 
 import com.core.dto.ServiceProviderDTO;
 import com.core.entity.ServiceProvider;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 
 public abstract class ServiceProviderMapper {
 
@@ -21,7 +21,7 @@ public abstract class ServiceProviderMapper {
 
     // Converter de ServiceProviderDTO para ServiceProvider, associando um User
     // existente
-    public static ServiceProvider toServiceProvider(ServiceProviderDTO serviceProviderDTO, User user) {
+    public static ServiceProvider toServiceProvider(ServiceProviderDTO serviceProviderDTO, UserMarket user) {
         ServiceProvider serviceProvider = new ServiceProvider();
         serviceProvider.setName(serviceProviderDTO.getName());
         serviceProvider.setDescription(serviceProviderDTO.getDescription());

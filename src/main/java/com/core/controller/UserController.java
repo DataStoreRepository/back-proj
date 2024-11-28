@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.core.dto.UserDTO;
-import com.core.entity.User;
+import com.core.entity.UserMarket;
 import com.core.service.UserService;
 
 
