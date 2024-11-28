@@ -22,28 +22,29 @@ public class SecurityConfigurations {
     SecurityFilter securityFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-            .cors().and().csrf().disable()
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                .requestMatchers(HttpMethod.POST, "/address").permitAll()
-                .requestMatchers(HttpMethod.GET, "/offered-service").permitAll()
-                .requestMatchers(HttpMethod.GET, "/offered-service/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/service-provider").permitAll()
-                .requestMatchers(HttpMethod.GET, "/service-provider/**").permitAll()
-                // .requestMatchers(HttpMethod.GET, "/**").permitAll()
-                    // .requestMatchers(HttpMethod.POST, "/service-provider").hasRole("USER")
-                    .anyRequest().authenticated()
-                )
+                .cors().and().csrf().disable()
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/address").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/address").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/offered-service").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/offered-service/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/service-provider").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/service-provider/**").permitAll()
+                        // .requestMatchers(HttpMethod.GET, "/**").permitAll()
+                        // .requestMatchers(HttpMethod.POST, "/service-provider").hasRole("USER")
+                        .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-            .build();
+                .build();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
