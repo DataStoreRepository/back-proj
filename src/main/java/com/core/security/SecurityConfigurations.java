@@ -35,7 +35,7 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.GET, "/offered-service/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/service-provider").permitAll()
                         .requestMatchers(HttpMethod.GET, "/service-provider/**").permitAll()
-                        // .requestMatchers(HttpMethod.GET, "/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/**").permitAll()
                         // .requestMatchers(HttpMethod.POST, "/service-provider").hasRole("USER")
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
