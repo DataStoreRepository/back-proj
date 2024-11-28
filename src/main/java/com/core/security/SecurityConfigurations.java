@@ -24,19 +24,20 @@ public class SecurityConfigurations {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-                .cors().and().csrf().disable()
+                .cors(cors -> cors.configurationSource(request -> {
+                    var corsConfiguration = new org.springframework.web.cors.CorsConfiguration();
+                    corsConfiguration.addAllowedOrigin("https://front-proj-ku7s.onrender.com");
+                    corsConfiguration.addAllowedMethod("*");
+                    corsConfiguration.addAllowedHeader("*");
+                    return corsConfiguration;
+                }))
+                .csrf().disable()
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/address").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/address").permitAll()
                         .requestMatchers(HttpMethod.GET, "/offered-service").permitAll()
                         .requestMatchers(HttpMethod.GET, "/offered-service/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/service-provider").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/service-provider/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/**").permitAll()
-                        // .requestMatchers(HttpMethod.POST, "/service-provider").hasRole("USER")
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
