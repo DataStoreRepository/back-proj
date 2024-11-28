@@ -12,8 +12,9 @@ import com.core.entity.UserMarket;
 @Repository
 public interface UserRepository extends JpaRepository<UserMarket, Long> {
     boolean existsByEmail(String email);
+
     UserDetails findByEmail(String email);
 
-    @Query("SELECT u FROM User u WHERE u.email = :email")
+    @Query("SELECT u FROM UserMarket u WHERE u.email = :email")
     Optional<UserMarket> findUserByEmail(String email);
 }
