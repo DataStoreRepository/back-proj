@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com", allowedHeaders = "*")
+@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com", allowedHeaders = "https://front-proj-ku7s.onrender.com")
 @RestController
 @RequestMapping("/service-order")
 public class ServiceOrderController {
