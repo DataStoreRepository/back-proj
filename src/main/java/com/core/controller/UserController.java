@@ -23,7 +23,7 @@ import com.core.dto.UserDTO;
 import com.core.entity.UserMarket;
 import com.core.service.UserService;
 
-@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com/", allowedHeaders = "*")
+@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com", allowedHeaders = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {

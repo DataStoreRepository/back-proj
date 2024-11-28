@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.core.dto.AddressDTO;
 import com.core.service.AddressService;
 
-@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com/", allowedHeaders = "*")
+@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com", allowedHeaders = "*")
 @RestController
 @RequestMapping("/address")
 public class AddressController {

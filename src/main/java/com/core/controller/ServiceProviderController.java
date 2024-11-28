@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.core.dto.ServiceProviderDTO;
 import com.core.service.ServiceProviderService;
 
-@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com/", allowedHeaders = "*")
+@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com", allowedHeaders = "*")
 @RestController
 @RequestMapping("/service-provider")
 public class ServiceProviderController {
