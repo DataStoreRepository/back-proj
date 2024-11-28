@@ -21,7 +21,7 @@ import com.core.service.AddressService;
 
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "https://back-proj-j660.onrender.com", allowedHeaders = "*")
 @RestController
 @RequestMapping("/address")
 public class AddressController {

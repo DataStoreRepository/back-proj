@@ -24,7 +24,7 @@ import com.core.entity.UserMarket;
 import com.core.service.UserService;
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "https://back-proj-j660.onrender.com", allowedHeaders = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {

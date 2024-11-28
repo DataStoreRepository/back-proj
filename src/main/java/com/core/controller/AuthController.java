@@ -22,7 +22,7 @@ import com.core.service.TokenService;
 
 @RestController
 @RequestMapping("auth")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://back-proj-j660.onrender.com")
 public class AuthController {
 
     @Autowired

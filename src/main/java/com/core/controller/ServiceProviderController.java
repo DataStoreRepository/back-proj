@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.core.dto.ServiceProviderDTO;
 import com.core.service.ServiceProviderService;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "https://back-proj-j660.onrender.com", allowedHeaders = "*")
 @RestController
 @RequestMapping("/service-provider")
 public class ServiceProviderController {
@@ -31,8 +31,6 @@ public class ServiceProviderController {
         ServiceProviderDTO serviceProvider = service.getServiceProviderByUserId(userId);
         return ResponseEntity.ok(serviceProvider);
     }
-
-    
 
     @PostMapping
     public ResponseEntity<ServiceProviderDTO> saveServiceProvider(
