@@ -82,15 +82,15 @@ public class SecurityConfigurations {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("https://front-proj-ku7s.onrender.com"); // Frontend URL
-        configuration.addAllowedMethod("*"); // Permitir todos os métodos HTTP
-        configuration.addAllowedHeader("*"); // Permitir todos os cabeçalhos
-        configuration.setAllowCredentials(true); // Permitir cookies e autenticação
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
+    // @Bean
+    // public CorsConfigurationSource corsConfigurationSource() {
+    //     CorsConfiguration configuration = new CorsConfiguration();
+    //     configuration.addAllowedOrigin("https://front-proj-ku7s.onrender.com"); // Frontend URL
+    //     configuration.addAllowedMethod("*"); // Permitir todos os métodos HTTP
+    //     configuration.addAllowedHeader("*"); // Permitir todos os cabeçalhos
+    //     configuration.setAllowCredentials(true); // Permitir cookies e autenticação
+    //     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    //     source.registerCorsConfiguration("/**", configuration);
+    //     return source;
+    // }
 }
