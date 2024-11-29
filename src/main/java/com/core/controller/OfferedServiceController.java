@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com", allowedHeaders = "https://front-proj-ku7s.onrender.com")
 @RestController
 @RequestMapping("/offered-service")
 public class OfferedServiceController {

@@ -21,7 +21,6 @@ import com.core.service.TokenService;
 
 @RestController
 @RequestMapping("auth")
-@CrossOrigin(origins = "https://front-proj-ku7s.onrender.com", allowedHeaders = "https://front-proj-ku7s.onrender.com")
 public class AuthController {
 
     @Autowired
